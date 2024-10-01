@@ -1,0 +1,685 @@
+
+.main-container {
+    display: flex;
+    flex-wrap: nowrap; /* Prevents flex items from wrapping */
+    gap: 20px; /* Adjusts the gap between the form and map */
+}
+
+.left-container,
+.right-container {
+    flex: 1; /* Allows both children to grow */
+}
+
+#map {
+    width: 650px; /* Ensures that the map takes the full width of its container */
+    /* If you set a max-height, ensure it's reasonable so the map is not too small */
+    height: 595px; /* Adjusts the height of the map */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+    form {
+    background-color: #ffffff;
+    padding: 20px;
+    width: 100%; 
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin:0px;
+    /* padding: 20px; */
+}
+.mapboxgl-ctrl-directions {
+    width: 100%;
+    min-width: 100px;
+    max-width: 1200px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+input[type="text"], select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+input[type="submit"] {
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+input[type="submit"]:hover {
+    background-color: #00b32a;
+}
+/* Add some styles for divs containing additional options */
+div[id$="Options"] {
+    background-color: #f7f7f7;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* cost estimation container */
+ #share-button {
+    width:100% !important;
+    display: block; /* Make the button a block element to fill the form width */
+    width: calc(100% - 20px); /* Subtract padding from the width */
+    padding: 8px 15px; /* Padding inside the button */
+    margin: 10px auto; /* Center the button with automatic horizontal margins */
+    background-color: transparent; /* Transparent background */
+    color: #027CBA;/* Blue text color */
+    border: 2px solid #027CBA; /* Blue border */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 16px; /* Text size */
+    cursor: pointer; /* Cursor changes to pointer to indicate it's clickable */
+    text-align: center; /* Align the text and icon to the left */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    text-decoration: none; /* Remove underline from text */
+    position: relative; /* Positioning context for the icon */
+}
+ #share-button:hover {
+    background-color: rgba(0, 123, 255, 0.1); /* Slight blue background on hover */
+    border-color: #0056b3; /* Slightly darker border on hover */
+    color: #027CBA;
+}
+ #share-button:before {
+    content: ''; /* Add before pseudo-element for the icon */
+    display: inline-block; /* Make the pseudo-element an inline block */
+    height: 16px; /* Icon height */
+    width: 16px; /* Icon width */
+    background-size: cover; /* Cover the area with the background image */
+    margin-right: 10px; /* Space between the icon and text */
+    vertical-align: middle; /* Align the icon vertically with the text */
+}
+#share-button:before {
+    background-image: url('https://www.personaldrivers.com/wp-content/uploads/share.png'); /* Your share icon URL here */
+}
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+    font-size: 15px;
+}
+input[type="text"], select, .pac-target-input {
+    max-width: 1200px;
+    background-color: #eeeeee;
+    /* padding: 13px 15px; */
+    /* margin:-8px; */
+    margin-bottom: 5px;
+    border: 2px solid #e6e6e6;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #666 !important;
+    width: 100%;
+}
+input[type="submit"] {
+    background-color: #027CBA;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 5px 5px 10px 0 rgba(0,0,0,.1);
+    width: 100%;
+}
+input[type="submit"]:hover {
+    background-color: #333;
+}
+.select-list {max-width: 600px;}
+div[id$="Options"] {
+    background-color: #f7f7f7;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.mapbox-directions-route-summary {
+    /* display: none;  */
+    background-color:#027CBA;
+}
+.mapbox-directions-route-summary {
+    font-size: 18px; /* Adjust the font size as needed */
+    text-align:center;
+}
+/* Add this CSS to hide the turn-by-turn directions panel */
+.mapbox-directions-instructions {
+    display: none;
+}
+.mapboxgl-ctrl-attrib-button
+{
+    display:none;
+}
+.mapboxgl-ctrl-attrib-inner{
+    display:none;
+}
+#share-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    z-index: 1000; /* Ensure it's above other elements */
+    display: none; /* Hidden by default */
+}
+/* Share Icons Container */
+#share-icons {
+    text-align: center;
+    padding: 10px 0;
+}
+/* Icon Style */
+#share-icons a {
+    margin: 0 10px;
+    display: inline-block;
+}
+#share-icons img {
+    margin:5px;
+    width: 20px;  /* Adjust the size as needed */
+    height: 20px; /* Adjust the size as needed */
+}
+/* Close Button Style */
+#close-modal {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #027cba; /* Blue background */
+    color: white; /* White text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+#close-modal:hover {
+    background-color: #333333; /* Darker blue background on hover */
+}
+#qr-code-container{
+    margin-bottom:10px;
+}
+.dropdown {
+    width: 100%;
+    position: relative;
+    max-width: 1200px;
+    min-width: 200px;
+  font-size: 13px;
+}
+.dropdown-options {
+    display:none;
+    position: absolute;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    max-height: 300px;
+    overflow-y: auto;
+    width: 100%; /* Set the width to match the parent */
+    z-index: 100; /* Make sure it's on top of other elements */
+    top: 100%; /* Position right below the dropdown-selected */
+    right: 0; /* Align to the left edge of the dropdown-selected */
+}
+.dropdown-options li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee; /* Adds a light border to each dropdown item */
+}
+.dropdown-options li:hover {
+  background-color: #f6f6f6;
+}
+
+.dropdown-options img{
+height:28px !important;
+}
+
+.dropdown-selected img{
+    height:30px !important;
+}
+.dropdown-selected {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    justify-content: space-between; /* Space out the child elements */
+    width: 415px; 
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc; /* Same border as the select element */
+    border-radius: 6px; /* Rounded corners */
+    cursor: pointer;
+    position: relative; /* Required to position the arrow icon */
+    z-index: 10; /* Stack order */
+}
+.dropdown-selected span {
+    margin-right: 5px; /* Adjust the gap as needed */
+    white-space: nowrap;
+    flex-grow: 1; /* Allows the text to take up available space */
+    font-size:14px;
+}
+.dropdown-selected:after {
+    /* content: ''; */
+    position: absolute;
+    right: 10px; /* Adjust as needed for spacing */
+    top: 50%;
+    transform: translateY(-50%);
+    border: 5px solid transparent; /* Creates a triangle */
+    border-top-color: #000; /* Triangle color */
+}
+.mapbox-directions-route-summary h1 {
+    font-weight: 800;
+    color:white;
+    display: inline;
+    font: 20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+.mapbox-directions-route-summary span {
+    /* color: rgba(255,255,255,0.5); */
+    color:white;
+    font-size: 20px;
+    margin: 0 5px;
+}
+#Trip{
+    padding:5px;
+}
+
+.form-map-container {
+    display: flex;
+    flex-direction: column; /* Stack vertically on mobile */
+    width: 100%; /* Full width of the container */
+    align-items: center; /* Center-align children */
+    margin-top: 20px;
+}
+/* Overlay for the popup */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's above other elements */
+}
+/* Toll cost estimation container modified for popup */
+#toll-cost-estimation {
+    background-color: #ffffff;
+    width: 40%; /* or any other size you prefer */
+    max-width: 1200px; /* Adjust the max-width as needed */
+    padding: 20px;
+    margin: 0; /* Reset margin */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3); /* More prominent shadow */
+    border-radius: 8px;
+    height: auto; /* Auto height */
+    z-index: 1001; /* Above the overlay */
+    position: relative; /* For positioning close button */
+}
+/* Title of the toll cost estimation panel */
+#toll-cost-estimation h2 {
+    background-color: #027CBA; /* Blue background */
+    color: white; /* White text color */
+    padding: 10px;
+    border-radius: 4px; /* Rounded corners for the title */
+    text-align:center;
+}
+#toll-cost-estimation table {
+    width: 100%; /* Full width of the container */
+    margin-top: 20px; /* Space between title and table */
+    border-collapse: collapse; /* Collapse the borders */
+}
+#toll-cost-estimation th,
+#toll-cost-estimation td {
+    text-align: left;
+    padding: 6px;
+    font-size:16px;
+    border-bottom: 1px solid #dee2e6; /* Light border for each row */
+}
+#toll-cost-estimation th {
+    background-color: #027CBA; /* Blue background for header */
+    color: white; /* White text color */
+}
+table {
+    width: 100%;
+    height:400px;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+th, td {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+}
+th {
+    background-color: #f2f2f2;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+td {
+    color: #555;
+}
+tr:hover {
+    background-color: #f5f5f5;
+}
+.close-btn {
+    margin: 1%;
+    margin-left: 93%;
+    position: relative;
+    /* top: -10px;
+    right: -10px; */
+    border: none;
+    background: #027CBA;
+    color: #fffff;
+    border-radius: 100%;
+    width: 48px;
+    /* height: 30px; */
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+#toll-cost-estimation #print-button {
+    background-color: #027CBA; /* Match the header color */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Padding for the button */
+    margin-top: 10px; /* Space from the content above */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 1rem; /* Font size */
+    float:right;
+}
+#result-share-button{
+    background-color: #027CBA; /* Match the header color */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Padding for the button */
+    margin-top: 10px; /* Space from the content above */
+    margin-right: 10px; /* Space from the content above */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 1rem; /* Font size */
+    float:right;
+}
+@media only screen and (min-width: 320px) and (max-width: 760px) {
+   
+    form {
+    margin: 0;
+    padding: 0;
+}
+    #toll-cost-estimation {
+    background-color: #ffffff;
+    width: 100%; /* or any other size you prefer */
+    max-width: 1200px; /* Adjust the max-width as needed */
+    padding: 20px;
+    margin: 0; /* Reset margin */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3); /* More prominent shadow */
+    border-radius: 8px;
+    height: auto; /* Auto height */
+    z-index: 1001; /* Above the overlay */
+    position: relative; /* For positioning close button */
+}
+    /* Style the header of the popup to prevent word wrapping */
+    #toll-cost-estimation h2 {
+        font-size: 20px; /* Reduce font size to prevent wrapping */
+        white-space: nowrap; /* Prevent wrapping */
+        overflow: hidden; /* Hide overflow */
+        text-overflow: ellipsis; /* Add ellipsis if the text is too long */
+        padding: 10px; /* Adjust padding to reduce space */
+    }
+    /* Adjust the styling for form elements to ensure they fit within the popup */
+    #toll-cost-estimation form {
+        width: 100%; /* Ensure form elements do not overflow the popup width */
+    }
+    /* Adjust dropdowns and inputs to fit within the popup */
+    #toll-cost-estimation .dropdown-selected,
+    #toll-cost-estimation input[type="text"],
+    #toll-cost-estimation select {
+        width: 100%; /* Make these elements take up the full width of the popup */
+        box-sizing: border-box; /* Include padding and borders in the width calculation */
+    }
+    .close-btn {
+    margin: 10px;
+    /* position: absolute; */
+    top: -10px;
+    right: -10px;
+    border: none;
+    background: #027CBA;
+    color: #fffff;
+    border-radius: 100%;
+    width: 48px;
+    /* height: 30px; */
+    font-size: 18px;
+    line-height: 10px;
+    text-align: center;
+    cursor: pointer;
+    top: 100%;
+    right: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+.dropdown-selected {
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden; /* Ensure that contents don't overflow */
+  }
+  .dropdown-selected span {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100%); /* Reserve space for image and padding */
+  }
+  .dropdown{
+    font-size: 12px;
+  }
+  .dropdown-options {
+        display: none; /* Hide by default */
+        position: absolute;
+        width: calc(100% - 20px); /* Full width minus padding */
+        top: 100%; /* Position right below the dropdown-selected */
+        left: 0; /* Align with the left edge */
+        background-color: #ffffff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        max-height: 300px;
+        overflow-y: auto;
+        z-index: 100;
+        width: 100%; /* Full width of the dropdown */
+    box-sizing: border-box; /* Include padding and borders in the width */
+    right:0;
+    margin:0;
+    padding:0;
+    }
+    .dropdown-options li img{
+        height:20px;
+    }
+    .main-container {
+        flex-direction: column;
+    }
+
+    .left-container,
+    .right-container {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #map {
+        width: 100%; /* Make the map width responsive */
+        height: auto; /* Adjust height as necessary, or keep it fixed if preferred */
+        max-height: 400px; /* Optional: you can set a maximum height */
+        margin: 0 auto; /* Center the map */
+    }
+    /* Ensures that padding and border are included in the width and height */
+    *, *:before, *:after {
+        box-sizing: border-box;
+    }
+    /* Additional style adjustments for the form and map */
+    form {
+        width: 100%;
+        box-shadow: none;
+    }
+    input[type="text"], select, .pac-target-input, .dropdown-selected {
+        /* Remove or reduce margins to ensure elements do not extend outside their container */
+        margin: 0;
+        max-width: none; /* This ensures the input uses the full width of its container */
+    }
+    /* Further styling adjustments for smaller screens */
+#qr-code-container img {
+        width: 100%; /* Make QR code responsive to container width */
+        max-width: 300px; /* Set a max-width if needed */
+        height: auto; /* Maintain aspect ratio */
+    }
+    /* Ensure the QR code container has padding or margin if needed so it doesn't touch the edges of the screen */
+    #qr-code-container {
+        padding: 10px;
+        text-align: center; /* Center the QR code within the container */
+    } 
+}
+#back-button {
+    margin-top: 10px;
+    background-color: #027CBA; /* Green background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding for size */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Cursor indicates it's clickable */
+    font-size: 1rem; /* Font size */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+#new-search {
+    width:100% !important;
+    display: block; /* Make the button a block element to fill the form width */
+    width: calc(100% - 20px); /* Subtract padding from the width */
+    padding: 8px 15px; /* Padding inside the button */
+    margin: 10px auto; /* Center the button with automatic horizontal margins */
+    background-color: transparent; /* Transparent background */
+    color: #027CBA; /* Blue text color */
+    border: 2px solid #027CBA; /* Blue border */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 16px; /* Text size */
+    cursor: pointer; /* Cursor changes to pointer to indicate it's clickable */
+    text-align: center; /* Align the text and icon to the left */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    text-decoration: none; /* Remove underline from text */
+    position: relative; /* Positioning context for the icon */
+}
+#new-search:hover {
+    background-color: rgba(0, 123, 255, 0.1); /* Slight blue background on hover */
+    border-color: #0056b3; /* Slightly darker border on hover */
+    color: #027CBA;
+}
+@media (min-width: 320px) and (max-width: 767px)
+{
+.gb-container-614b9fa9 {
+    text-align: left;
+    padding: 20px 30px;
+    margin-top: 20px;
+}
+}
+@media print {
+    /* This will hide the print button when printing */
+    #print-button, #back-button, #result-share-button, #close-btn {
+        display: none !important;
+    }
+    /* Any additional print styles you want to add */
+    #toll-cost-estimation {
+        box-shadow: none; /* Removes shadow for printing */
+        position: absolute;
+        width:100%;
+        justify-content:center;
+        left: 0;
+        top: 0;
+    }
+    /* Ensure the overlay doesn't affect print layout */
+    .overlay {
+        background: none;
+        position: static;
+    }
+    /* Hide everything else on the page */
+    body * {
+        visibility: hidden;
+        
+    }
+    /* Only the toll-cost-estimation div will be visible */
+    #toll-cost-estimation, #toll-cost-estimation * {
+        visibility: visible;
+        page-break-inside: avoid; /* Avoids breaking inside the element */
+        box-shadow: none; /* Removes shadow */      
+    }
+}
+
+/* @media (min-width: 320px) and (max-width: 900px)
+{
+    #map {
+    width: 250px; 
+    height: 580px; 
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+} */
+/* @media only screen and (min-width: 320px) and (max-width: 760px and max-width: 1140px)
+{
+    #map {
+    width: 450px; 
+    height: 580px; 
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+} */
+
+@media only screen and (min-width: 761px) and (max-width: 860px) {
+    #map {
+        width: 280px; 
+        height: 580px; 
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+   
+}
+
+@media only screen and (min-width: 861px) and (max-width: 960px) {
+    #map {
+        width: 380px; 
+        height: 580px; 
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    
+}
+@media only screen and (min-width: 961px) and (max-width: 1060px) {
+    #map {
+        width: 450px; 
+        height: 580px; 
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+}
+@media only screen and (min-width: 1061px) and (max-width: 1145px) {
+    #map {
+        width: 550px; 
+        height: 580px; 
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+}
