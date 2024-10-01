@@ -927,7 +927,7 @@ curl_setopt_array($curl, [
     CURLOPT_POSTFIELDS => $postFields,
     CURLOPT_HTTPHEADER => [
         "content-type: application/json",
-        "x-api-key: dGj8Rn4tDpp7bjmGjLrDr293tg8m3F4F"  
+        "x-api-key: "  
     ],
 ]);
 $response = curl_exec($curl);
