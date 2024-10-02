@@ -32,7 +32,7 @@ function initialize() {
     });
 }
 function initializeMapbox() {
-    mapboxgl.accessToken = 'pk.eyJ1IjoibXVzdGFmYTY1IiwiYSI6ImNscDlxeWNnYjAwMjQyaXByNmdyZnhweXUifQ.110J0niaCQr-nvg_4Ye-6A'; // Use your actual Mapbox token
+    mapboxgl.accessToken = ''; // Use your actual Mapbox token
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
